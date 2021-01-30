@@ -1,4 +1,0 @@
-# firebase-auth-app
-This is a simple recipe book app built using Firebase and Materialize CSS.
-
-View demo: https://loganlaski.github.io/firebase-auth-app/
