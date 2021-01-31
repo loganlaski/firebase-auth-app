@@ -1,0 +1,165 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Recipe Book</title>
+  </head>
+  <body class="grey lighten-3">
+    <!-- NAVBAR -->
+
+    <!-- NEW NAVBAR -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <div class="row">
+            <div class="col s12" id="nav-area">
+              <ul class="left">
+                <li>
+                  <a href="#home" class="nav-logo" href="#home">Recipes </a>
+                </li>
+              </ul>
+
+              <ul class="right" id="nav-links">
+                <li class="logged-in" style="display: none">
+                  <a href="#" class="modal-trigger" data-target="modal-account"
+                    ></i
+                    >Account</a
+                  >
+                </li>
+                <li class="logged-in" style="display: none">
+                  <a href="#" class="" id="logout">Logout</a>
+                </li>
+                <li class="logged-in" style="display: none">
+                  <a href="#" class="modal-trigger" data-target="modal-create"
+                    >Add Recipe</a
+                  >
+                </li>
+                <li class="logged-out" style="display: none">
+                  <a href="#" class="modal-trigger" data-target="modal-login"
+                    >Login</a
+                  >
+                </li>
+                <li class="logged-out" style="display: none">
+                  <a href="#" class="modal-trigger" data-target="modal-signup"
+                    >Sign up</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- SIGN UP MODAL -->
+    <div id="modal-signup" class="modal">
+      <div class="modal-content">
+        <h4>Sign up</h4>
+        <br />
+        <form id="signup-form">
+          <div class="input-field">
+            <input type="email" id="signup-email" required />
+            <label for="signup-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="signup-password" />
+            <label for="signup-password">Choose password</label>
+          </div>
+          <button class="btn black z-depth-0">Sign up</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+      <div class="modal-content">
+        <h4>Login</h4>
+        <br />
+        <form id="login-form">
+          <div class="input-field">
+            <input type="email" id="login-email" required />
+            <label for="login-email">Email address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="login-password" required />
+            <label for="login-password">Your password</label>
+          </div>
+          <button class="btn black z-depth-0">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+      <div class="modal-content center-align">
+        <h4>Account details</h4>
+        <br />
+        <div class="account-details"></div>
+      </div>
+    </div>
+
+    <!-- CREATE RECIPE MODAL -->
+    <div id="modal-create" class="modal">
+      <div class="modal-content">
+        <h4>New Recipe</h4>
+        <br />
+        <form id="create-form">
+          <div class="input-field">
+            <input type="text" id="title" required />
+            <label for="title">Title</label>
+          </div>
+          <div class="input-field">
+            <textarea
+              id="content"
+              class="materialize-textarea"
+              required
+            ></textarea>
+            <label for="content">Description</label>
+          </div>
+          <button class="btn black z-depth-0">Create Recipe</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- RECIPE LIST -->
+    <div class="container" id="recipe-list">
+      <ul class="collapsible z-depth-0 guides" style="border: none"></ul>
+    </div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-functions.js"></script>
+    <script>
+      // Initialize Firebase
+      var firebaseConfig = {
+        apiKey: "AIzaSyAVBdJ7JVb8dQ5HXhdeTtln254NA7tW9Gc",
+        authDomain: "ll-recipe-app.firebaseapp.com",
+        databaseURL: "https://ll-recipe-app.firebaseio.com",
+        projectId: "ll-recipe-app",
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      // Make Auth and Firestore References
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      const functions = firebase.functions();
+
+      // Update Firestore Settings
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="auth.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
