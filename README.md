@@ -2,4 +2,4 @@
 
 Built using Firebase/Firestore and Materialize CSS 
 
-Demo: 
+Demo: https://loganlaski.github.io/firebase-auth-app/
